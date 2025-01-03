@@ -1,0 +1,302 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
+
+$white: hsl(0, 0%, 100%);
+$font: 'League Spartan', sans-serif;
+$theme2VeryDarkGrayishYellow: hsl(60, 10%, 19%);
+$theme3LightYellow: hsl(52, 100%, 62%);
+$them1VeryDarkDesaturatedBlue: hsl(222, 26%, 31%);
+$theme1VeryDarkDesaturatedBlueScreen: hsl(224, 36%, 15%);
+$theme1LightGrayishOrange: hsl(30, 25%, 89%);
+$theme1Red: hsl(6, 63%, 50%);
+$theme2LightGray: hsl(0, 0%, 90%);
+$theme2VeryLightGray: hsl(0, 0%, 93%);
+$theme2VeryDarkGrayishYellow: hsl(60, 10%, 19%);
+$theme2DarkModerateCyan: hsl(185, 42%, 37%);
+$theme2DarkGrayishOrange: hsl(35, 11%, 61%);
+$theme2LightGrayishYellow: hsl(45, 7%, 89%);
+$theme2GrayishRed: hsl(0, 5%, 81%);
+$theme2DarkModerateCyan: hsl(185, 42%, 37%);
+$theme3VeryDarkViolet: hsl(268, 75%, 9%);
+$theme3VeryDarkVioletDisplay: hsl(268, 71%, 12%);
+$theme3LightYellow: hsl(52, 100%, 62%);
+$theme3DarkViolet: hsl(281, 89%, 26%);
+$theme3PureCyan: hsl(176, 100%, 44%);
+$theme3VeryDarkVioletKey: hsl(268, 47%, 21%);
+$theme3VeryDarkBlue: hsl(198, 20%, 13%);
+$theme1VeryDarkDesaturatedBlue: hsl(225, 21%, 49%);
+$theme3: hsl(268, 75%, 9%);
+
+body {
+    font-family: $font;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+
+.tw-toggle {
+    & input {
+        appearance: none;
+        position: relative;
+        top: 0;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.calculatorKeys {
+    border-radius: .4rem;
+
+    & .buttonNumber {
+        border-radius: .4rem;
+        box-shadow: 0px -5px 2px -1px rgba(0, 0, 0, 0.3) inset;
+    }
+}
+
+
+.theme1 {
+    background-color: $them1VeryDarkDesaturatedBlue;
+
+    .tw-toggle {
+        background-color: $theme1VeryDarkDesaturatedBlue;
+    }
+
+    .display {
+        background-color: $theme1VeryDarkDesaturatedBlueScreen;
+        color: white;
+    }
+
+
+    .calculatorKeys {
+        background-color: $theme1VeryDarkDesaturatedBlueScreen;
+
+        & .buttonNumber {
+            border-radius: .4rem;
+            background-color: $theme1LightGrayishOrange;
+            border-color: $theme1LightGrayishOrange;
+            color: $theme1VeryDarkDesaturatedBlue;
+
+            &:hover {
+                background-color: hsl(0,0%,100%);
+            }
+          
+        }
+
+        & #delete {
+            border-radius: .4rem;
+            background-color: hsl(225, 21%, 49%);;
+            border-color:  hsl(225, 21%, 49%);;
+            color: white;
+            &:hover {
+                background-color: hsl(224,51%,76%);
+            }
+        }
+
+        & #reset {
+            border-radius: .4rem;
+            color: white;
+            background-color: hsl(225, 21%, 49%);
+            border-color:  hsl(225, 21%, 49%);
+
+            &:hover {
+                background-color: hsl(224,51%,76%);
+            }
+        }
+
+        & #equal {
+            border-radius: .4rem;
+            color: white;
+            background-color: $theme1Red;
+            border-color: $theme1Red;
+            &:hover {
+                background-color: hsl(6,95%,65%);
+            }
+
+        }
+
+    }
+
+    .title {
+        color: $white;
+    }
+
+    label {
+        color: $white;
+    }
+
+    h6 {
+        color: $white;
+    }
+}
+
+
+.theme2 {
+
+    background-color: $theme2LightGray;
+
+    .title {
+        color: $theme2VeryDarkGrayishYellow;
+    }
+
+    label {
+        color: $theme2VeryDarkGrayishYellow;
+    }
+
+    h6 {
+        color: $theme2VeryDarkGrayishYellow;
+    }
+
+    .tw-toggle {
+        background-color: $theme2GrayishRed;
+    }
+
+    .display {
+        background-color: $theme2VeryLightGray;
+        color: $theme2VeryDarkGrayishYellow;
+    }
+
+    .calculatorKeys {
+        background-color: $theme2GrayishRed;
+
+        & .buttonNumber {
+            border-radius: .4rem;
+            background-color: $theme1LightGrayishOrange;
+            border-color: $theme1LightGrayishOrange;
+            color: $theme1VeryDarkDesaturatedBlue;
+            &:hover {
+                background-color: hsl(0,0%,100%);
+            }
+        }
+
+        & #delete {
+            border-radius: .4rem;
+            background-color: $theme2DarkModerateCyan;
+            border-color: $theme2DarkModerateCyan;
+            color: white;
+            box-shadow: 0px -5px 0px -1px hsl(185, 58%, 25%) inset;
+            &:hover {
+                background-color: hsl(185,41%,56%);
+            }
+        }
+
+        & #reset {
+            border-radius: .4rem;
+            background-color: $theme2DarkModerateCyan;
+            border-color: $theme2DarkModerateCyan;
+            color: white;
+
+            &:hover {
+                background-color: hsl(185,41%,56%);
+            }
+        }
+
+        & #equal {
+            border-radius: .4rem;
+            color: white;
+            background-color: $theme1Red;
+            border-color: $theme1Red;
+
+            &:hover {
+                background-color: hsl(25,100%,61%);
+            }
+
+        }
+
+    }
+
+    .attribution {
+        color: black;
+    }
+
+}
+
+.theme3 {
+
+    background-color: $theme3;
+
+    .title {
+        color: $theme3LightYellow;
+    }
+
+    label {
+        color: $theme3LightYellow
+    }
+
+    h6 {
+        color: $theme3LightYellow;
+    }
+
+    .tw-toggle {
+        background-color: $theme3VeryDarkViolet;
+    }
+
+
+
+    .display {
+        background-color: $theme3VeryDarkVioletDisplay;
+        color: $theme3LightYellow;
+    }
+
+    .calculatorKeys {
+        background-color: $theme3VeryDarkVioletDisplay;
+
+        & .buttonNumber {
+            border-radius: .4rem;
+            background-color: $theme3VeryDarkVioletKey;
+            border-color: $theme3VeryDarkVioletKey;
+            color: $theme3LightYellow;
+            box-shadow: 0px -5px 0px -1px hsl(290, 70%, 36%) inset;
+
+            &:hover {
+                background-color: hsl(267,54%,44%);
+            }
+        }
+
+        & #delete {
+            border-radius: .4rem;
+            background-color: $theme3DarkViolet;
+            border-color: $theme3DarkViolet;
+            color: white;
+            box-shadow: 0px -5px 0px -1px hsl(285, 91%, 52%) inset;
+
+            &:hover {
+                background-color: hsl(280,56%,44%);
+            }
+        }
+
+        & #reset {
+            border-radius: .4rem;
+            background-color: $theme3DarkViolet;
+            border-color: $theme3DarkViolet;
+            color: white;
+            box-shadow: 0px -5px 0px -1px hsl(285, 91%, 52%) inset;
+
+            &:hover {
+                background-color: hsl(280,56%,44%);
+            }
+        }
+
+        & #equal {
+            border-radius: .4rem;
+            color: $theme3VeryDarkBlue;
+            background-color: $theme3PureCyan;
+            border-color: $theme3PureCyan;
+            box-shadow: 0px -5px 0px -1px hsl(177, 92%, 70%) inset;
+
+            &:hover {
+                background-color: hsl(177,100%,79%);
+            }
+        }
+
+    }
+}
