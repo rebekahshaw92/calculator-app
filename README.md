@@ -32,11 +32,11 @@ Users should be able to:
 
 #### Desktop
 
-![desktop](assets/images/desktop.png)
+![desktop](/public/desktop.png)
 
 #### Mobile
 
-![mobile](assets/images/mobile.png)
+![mobile](/public/mobile.png)
 
 ### Links
 
