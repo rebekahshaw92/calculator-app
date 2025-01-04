@@ -27,7 +27,7 @@ export default function Home() {
 
 
   return (
-    <div className={`body w-full lg:w-1/2 md:w-9/12 md:mx-auto ${theme}`}>
+    <div className={`body w-full lg:w-5/12 md:w-7/12 md:mx-auto ${theme}`}>
       <div className="header flex items-center justify-between mt-[50px]">
         <div>
           <h1 className="title text-2xl lg:text-4xl mx-5">calc</h1>

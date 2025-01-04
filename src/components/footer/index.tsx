@@ -1,8 +1,9 @@
-import { Fragment, JSX } from "react";
+import { JSX } from "react";
 import Link from "next/link";
+
 export default function Footer(): JSX.Element {
     return (
-      <div className="attribution text-center text-[12px] lg:text-sm mt-4 text-white">
+      <div className="attribution text-center text-[12px] py-5 lg:text-sm mt-4 text-white">
         Challenge by{' '}
         <Link
           href="https://www.frontendmentor.io?ref=challenge"
