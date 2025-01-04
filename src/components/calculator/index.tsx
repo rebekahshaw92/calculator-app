@@ -99,7 +99,7 @@ export default function Calculator(): JSX.Element {
                 <div className="display flex justify-end mx-5 my-5 p-5 rounded-lg">
                     <div className="displayCurrent text-3xl lg:text-4xl overflow-hidden text-ellipsis whitespace-nowrap" id="displayValue">{addCommas(currentValue)}</div>
                 </div>
-                <div className="calculatorKeys grid grid-cols-4 lg:p-4 p-2  mt-[1rem] mx-5 rounded-lg">
+                <div className="calculatorKeys grid grid-cols-4 p-2  mt-[1rem] mx-5 rounded-lg">
                     <button className="buttonNumber text-lg lg:text-3xl m-2.5 p-2" onClick={() => handleNumberClick('7')}>7</button>
                     <button className="buttonNumber text-lg lg:text-3xl m-2.5 p-2" onClick={() => handleNumberClick('8')}>8</button>
                     <button className="buttonNumber  text-lg lg:text-3xl m-2.5 p-2" onClick={() => handleNumberClick('9')}>9</button>
