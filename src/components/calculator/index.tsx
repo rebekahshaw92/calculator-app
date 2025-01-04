@@ -6,6 +6,7 @@ export default function Calculator(): JSX.Element {
     const [currentValue, setCurrentValue] = useState<string>("0");
     const [prevValue, setPrevValue] = useState<string | null>(null);
     const [operator, steOperator] = useState<string | null>(null);
+    const [isEnteringNewValue, setIsEnteringNewValue] = useState<boolean>(false);
 
     const truncateValue = (value: string): string => {
         const maxDigits = 15; 
@@ -22,8 +23,9 @@ export default function Calculator(): JSX.Element {
       };
     
     const handleNumberClick = (value: string) => {
-        if (currentValue === "0") {
+        if (currentValue === "0" || isEnteringNewValue)  {
             setCurrentValue(value);
+            setIsEnteringNewValue(false)
         } else {
             setCurrentValue(currentValue + value);
         }
@@ -33,13 +35,13 @@ export default function Calculator(): JSX.Element {
         if (operator && prevValue !== null) {
             const result = calculate(prevValue, operator, currentValue);
             setPrevValue(result.toString());
-            setCurrentValue('0');
+            setCurrentValue(result.toString());
         } else {
             setPrevValue(currentValue);
-            setCurrentValue('0');
-
+            
         }
         steOperator(selectedOperator);
+        setIsEnteringNewValue(true);
     }
 
     const handleEqualClick = () => {
@@ -98,24 +100,24 @@ export default function Calculator(): JSX.Element {
                     <div className="displayCurrent text-3xl lg:text-4xl overflow-hidden text-ellipsis whitespace-nowrap" id="displayValue">{addCommas(currentValue)}</div>
                 </div>
                 <div className="calculatorKeys grid grid-cols-4 lg:p-4 p-2  mt-[1rem] mx-5 rounded-lg">
-                    <button className="buttonNumber text-lg lg:text-2xl m-2.5 p-2" onClick={() => handleNumberClick('7')}>7</button>
-                    <button className="buttonNumber text-lg lg:text-2xl m-2.5 p-2" onClick={() => handleNumberClick('8')}>8</button>
-                    <button className="buttonNumber  text-lg lg:text-2xl m-2.5 p-2" onClick={() => handleNumberClick('9')}>9</button>
-                    <button className="uppercase buttonNumber  m-2.5 text-lg lg:text-2xl p-2" id="delete" onClick={handleDelete}>del</button>
-                    <button className=" buttonNumber  text-lg lg:text-2xl m-2.5 p-2" onClick={() => handleNumberClick('4')}>4</button>
-                    <button className=" buttonNumber  text-lg lg:text-2xl m-2.5 p-2" onClick={() => handleNumberClick('5')}>5</button>
-                    <button className=" buttonNumber  text-lg lg:text-2xl m-2.5 p-2" onClick={() => handleNumberClick('6')}>6</button>
-                    <button className=" buttonNumber  text-lg lg:text-2xl m-2.5 p-2" onClick={() => handleOperatorClick('add')}>+</button>
-                    <button className=" buttonNumber  text-lg lg:text-2xl m-2.5 p-2" onClick={() => handleNumberClick('1')}>1</button>
-                    <button className=" buttonNumber  text-lg lg:text-2xl m-2.5 p-2" onClick={() => handleNumberClick('2')}>2</button>
-                    <button className=" buttonNumber  text-lg lg:text-2xl m-2.5 p-2" onClick={() => handleNumberClick('3')}>3</button>
-                    <button className=" buttonNumber  text-lg lg:text-2xl m-2.5 p-2" onClick={() => handleOperatorClick('subtract')}>-</button>
-                    <button className=" buttonNumber  text-lg lg:text-2xl m-2.5 p-2" id="dot" onClick={handleDecimal}>.</button>
-                    <button className=" buttonNumber  text-lg lg:text-2xl m-2.5 p-2" onClick={() => handleNumberClick('0')}>0</button>
-                    <button className=" buttonNumber  text-lg lg:text-2xl m-2.5 p-2" onClick={() => handleOperatorClick('divide')}>/</button>
-                    <button className=" buttonNumber  text-lg lg:text-2xl m-2.5 p-2" onClick={() => handleOperatorClick('multiply')}>&times;</button>
-                    <button className="uppercase buttonNumber  m-2.5 text-lg lg:text-2xl col-span-2 p-2" id="reset" onClick={handleClear}>reset</button>
-                    <button className="buttonNumber  text-lg lg:text-2xl m-2.5 col-span-2 p-2" id="equal" onClick={handleEqualClick}>=</button>
+                    <button className="buttonNumber text-lg lg:text-3xl m-2.5 p-2" onClick={() => handleNumberClick('7')}>7</button>
+                    <button className="buttonNumber text-lg lg:text-3xl m-2.5 p-2" onClick={() => handleNumberClick('8')}>8</button>
+                    <button className="buttonNumber  text-lg lg:text-3xl m-2.5 p-2" onClick={() => handleNumberClick('9')}>9</button>
+                    <button className="uppercase buttonNumber  m-2.5 text-lg lg:text-3xl p-2" id="delete" onClick={handleDelete}>del</button>
+                    <button className=" buttonNumber  text-lg lg:text-3xl m-2.5 p-2" onClick={() => handleNumberClick('4')}>4</button>
+                    <button className=" buttonNumber  text-lg lg:text-3xl m-2.5 p-2" onClick={() => handleNumberClick('5')}>5</button>
+                    <button className=" buttonNumber  text-lg lg:text-3xl m-2.5 p-2" onClick={() => handleNumberClick('6')}>6</button>
+                    <button className=" buttonNumber  text-lg lg:text-3xl m-2.5 p-2" onClick={() => handleOperatorClick('add')}>+</button>
+                    <button className=" buttonNumber  text-lg lg:text-3xl m-2.5 p-2" onClick={() => handleNumberClick('1')}>1</button>
+                    <button className=" buttonNumber  text-lg lg:text-3xl m-2.5 p-2" onClick={() => handleNumberClick('2')}>2</button>
+                    <button className=" buttonNumber  text-lg lg:text-3xl m-2.5 p-2" onClick={() => handleNumberClick('3')}>3</button>
+                    <button className=" buttonNumber  text-lg lg:text-3xl m-2.5 p-2" onClick={() => handleOperatorClick('subtract')}>-</button>
+                    <button className=" buttonNumber  text-lg lg:text-3xl m-2.5 p-2" id="dot" onClick={handleDecimal}>.</button>
+                    <button className=" buttonNumber  text-lg lg:text-3xl m-2.5 p-2" onClick={() => handleNumberClick('0')}>0</button>
+                    <button className=" buttonNumber  text-lg lg:text-3xl m-2.5 p-2" onClick={() => handleOperatorClick('divide')}>/</button>
+                    <button className=" buttonNumber  text-lg lg:text-3xl m-2.5 p-2" onClick={() => handleOperatorClick('multiply')}>&times;</button>
+                    <button className="uppercase buttonNumber  m-2.5 text-lg lg:text-3xl col-span-2 p-2" id="reset" onClick={handleClear}>reset</button>
+                    <button className="buttonNumber  text-lg lg:text-3xl m-2.5 col-span-2 p-2" id="equal" onClick={handleEqualClick}>=</button>
                 </div>
             </div>
         </Fragment>
