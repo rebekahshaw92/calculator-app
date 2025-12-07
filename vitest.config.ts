@@ -1,19 +1,16 @@
 import { defineConfig } from "vitest/config";
+import react from "@vitejs/plugin-react";
+import path from "path";
 
 export default defineConfig({
-    test: {
-        projects: [
-            'packages/*',
-            'tests/*/vitest.config.{e2e,unit}.ts',
-            {
-                test: {
-                         name: 'happy-dom',
-                         root: './shared_tests',
-                        environment: 'happy-dom',
-                         setupFiles: ['./setup.happy-dom.ts'],
-                }
-            }
-
-        ]
-    }
-})
+  plugins: [react()],
+  test: {
+    environment: "jsdom", // or "jsdom"
+    globals: true,
+    setupFiles: "./vitest.setup.ts",
+    alias: {
+      "@": path.resolve(__dirname, "./"),
+    },
+    css: false,
+  },
+});
